@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maryam's DPT Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="login-screen" class="container login-container">
+        <h1>Welcome Back, Maryam 🤍</h1>
+        <p>Enter your details to view your academic portal.</p>
+        
+        <div class="input-group">
+            <input type="text" id="username" placeholder="Username (maryam)">
+            <input type="password" id="password" placeholder="Password (dpt2026)">
+        </div>
+        
+        <button onclick="checkLogin()" class="btn-primary">Login</button>
+        <p id="error-msg" class="error">Incorrect username or password.</p>
+    </div>
+
+    <div id="app-screen" class="container app-container" style="display:none;">
+
+    <!-- Header -->
+    <div class="header">
+        <div>
+            <h2>Maryum's Academic Companion 🤍</h2>
+            <p id="welcome-text"></p>
+        </div>
+
+        <button onclick="logout()" class="btn-secondary btn-small">
+            Logout
+        </button>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="dashboard">
+
+        <div class="love-card">
+            <h3>💌 A Little Note</h3>
+            <p id="love-message">
+                You're doing amazing.
+            </p>
+        </div>
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <span>Latest SGPA</span>
+                <h2 id="latest-sgpa">--</h2>
+            </div>
+
+            <div class="stat-card">
+                <span>Current CGPA</span>
+                <h2 id="cgpa">--</h2>
+            </div>
+
+            <div class="stat-card">
+                <span>Semesters Completed</span>
+                <h2 id="semester-count">0</h2>
+            </div>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="controls">
+
+        <select id="semester-select" onchange="hideResult()">
+
+            <option value="none">Select Semester</option>
+
+            <option value="sem1">Semester I</option>
+            <option value="sem2">Semester II</option>
+            <option value="sem3">Semester III</option>
+            <option value="sem4">Semester IV</option>
+            <option value="sem5">Semester V</option>
+            <option value="sem6">Semester VI</option>
+            <option value="sem7">Semester VII</option>
+            <option value="sem8">Semester VIII</option>
+            <option value="sem9">Semester IX</option>
+            <option value="sem10">Semester X</option>
+
+        </select>
+
+        <button onclick="loadTemplate()" class="btn-secondary">
+            Open Semester
+        </button>
+
+        <button id="history-btn" class="btn-primary">
+            📚 Previous Results
+        </button>
+
+    </div>
+
+    <div id="history-section" style="display:none;">
+
+        <h3>Your Journey So Far 📚</h3>
+
+        <div id="history-container">
+
+        </div>
+
+    </div>
+
+    <div id="course-list">
+
+    </div>
+
+    <div class="actions">
+
+        <button onclick="addBlankCourse()" class="btn-secondary">
+
+            + Add Extra Course
+
+        </button>
+
+    </div>
+
+    <div class="submission-area">
+
+        <button onclick="calculateSGPA()" class="btn-primary btn-large">
+
+            Save & Calculate SGPA
+
+        </button>
+
+        <div id="result-box" class="result-box" style="display:none;">
+
+            <h3>
+
+                SGPA
+
+                <span id="sgpa-display">0.00</span>
+
+            </h3>
+
+            <p>
+
+                Total Credit Hours
+
+                <span id="ch-display">0</span>
+
+            </p>
+
+            <p class="success-msg">
+
+                ✔ Semester saved successfully
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
