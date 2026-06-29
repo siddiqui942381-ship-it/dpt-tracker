@@ -130,7 +130,7 @@ window.checkLogin = async function() {
     const user = document.getElementById("username").value.toLowerCase();
     const pass = document.getElementById("password").value;
 
-    if (user === "maryam" && pass === "dpt2026") {
+    if (user === "maryum" && pass === "dpt2026") {
         document.getElementById("login-screen").style.display = "none";
         document.getElementById("app-screen").style.display = "block";
         
@@ -154,7 +154,7 @@ window.logout = function() {
 
 async function fetchUserData() {
     try {
-        const docRef = doc(db, "students", "maryam");
+        const docRef = doc(db, "students", "maryum");
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
@@ -352,7 +352,7 @@ window.calculateSGPA = async function() {
         try {
             allSavedSemesters[selectedSem] = activeCourses;
             
-            await setDoc(doc(db, "students", "maryam"), {
+            await setDoc(doc(db, "students", "maryum"), {
                 semesters: allSavedSemesters
             }, { merge: true });
 
